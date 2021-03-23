@@ -1,0 +1,31 @@
+{% extends 'link/base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block main %}
+
+  <h2 class="mb-5">Новости</h2>
+
+  <form class="p-5">
+    <div class="container">
+      <h3 class="ms-5">{{ object.title }}</h3>
+      <hr>
+      <p>{{ object.slug }}</p>
+      <div class="d-flex">
+        <div class="ms-3">
+
+            <p>Автор: <b>{{ object.autor }}</b></p>
+
+        </div>
+      </div>
+      <hr class="mb-3">
+      {% if object.autor == user %}
+      <a href="{% url 'link-update' object.slug %}" class="btn btn-info ms-2 shadow-lg rounded">Редактировать статью</a>
+      <a href="{% url 'link-delete' object.slug %}" class="btn btn-danger ms-2 shadow-lg rounded">Удалить статью</a>
+      {% endif %}
+    </div>
+  </form>
+
+{% endblock %}
