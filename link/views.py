@@ -32,7 +32,7 @@ class ShowLinkView(ListView):
     def get_context_data(self, **kwards):
         ctx = super(ShowLinkView, self).get_context_data(**kwards)
 
-        ctx['title'] = 'Новости'
+        ctx['title'] = 'Ссылки'
         return ctx
 
 class LinkDetailView(DetailView):
@@ -57,8 +57,8 @@ class CreateLinkView(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwards):
         ctx = super(CreateLinkView, self).get_context_data(**kwards)
 
-        ctx['title'] = 'Добавление статьи'
-        ctx['btn_text'] = 'Добавить статью'
+        ctx['title'] = 'Добавление ссылки'
+        ctx['btn_text'] = 'Добавить ссылку'
         return ctx
 
 class UpdateLinkView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):

@@ -10,7 +10,7 @@
       <h2 class="form__h2">Ссылки</h2>
       {% for post in link %}
       {% if post.autor == user %}
-        <h3 class="form__h3">{{ post.title }}</h3>
+        <p class="form__h3">{{ post.title }}</p>
         <hr>
         <a href="{{ post.long_link }}" target="blank"><p>link/{{ post.slug }}</p></a>
         <div class="">
