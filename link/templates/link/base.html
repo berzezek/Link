@@ -5,48 +5,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{% static 'h_work_15/style.css' %}">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'link/style.css' %}">
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-  <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-lg rounded">
-    <a class="display-4 h2 ms-5 me-md-auto fw-bold" href="{% url 'home' %}">Simply</a>
+  <header class="header">
+    <a class="header__a" href="{% url 'home' %}">
+      <h2 class="header__h2">Обрезание</h2>
+    </a>
 
-    <nav class="my-2 my-md-0 me-md-3">
+    <nav class="header__nav">
         {% if not user.is_authenticated %}
           <a href="{% url 'reg' %}" class="nav__reg">
-          <button class="btn btn-warning shadow-lg rounded">Регистрация</button>
+          <button class="nav__button">Регистрация</button>
           </a>
           <a href="{% url 'user' %}" class="nav__reg">
-          <button class="btn btn-info ms-2 shadow-lg rounded">Войти</button>
+          <button class="nav__button">Войти</button>
           </a>
         {% else %}
           <a href="{% url 'profile' %}" class="nav__reg">
-          <button class="btn btn-warning shadow-lg rounded">Профиль</button>
+          <button class="nav__button">Профиль</button>
           </a>
           <a href="{% url 'exit' %}" class="nav__reg">
-          <button class="btn btn-info ms-2 shadow-lg rounded">Выйти</button>
+          <button class="nav__button">Выйти</button>
           </a>
           <a href="{% url 'link-add' %}" class="nav__reg">
-          <button class="btn btn-info ms-2 shadow-lg rounded">Добавить статью</button>
+          <button class="nav__button">Добавить статью</button>
           </a>
         {% endif %}
-      <a class="p-2 text-dark" href="{% url 'uslugi' %}">Услуги</a>
-      <a class="p-2 text-dark" href="{% url 'link' %}">Новости</a>
-      <a class="p-2 text-dark" href="{% url 'about' %}">Про нас</a>
+      <a class="nav__button" href="{% url 'uslugi' %}">Услуги</a>
+      <a class="nav__button" href="{% url 'link' %}">Новости</a>
+      <a class="nav__button" href="{% url 'about' %}">Про нас</a>
     </nav>
   </header>
-  <main class="container">
+  <main class="form">
     {% if messages %}
-      {% for mes in messages %}
-        <div class="alert alert-success">Вы были успешно зарегистрированы!</div>
-      {% endfor %}
+    {% for mes in messages %}
+    <div class="alert">Вы были успешно зарегистрированы!</div>
+    {% endfor %}
     {% endif %}
 
     {% block main %}
 
     {% endblock %}
+
+  </main>
 
 </body>
 </html>

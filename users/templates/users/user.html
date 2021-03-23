@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block main %}
-  <main class="container mb-5">
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
-      <h2 class="fw-bold my-5">Страница авторизации</h2>
-    <form method="post" class="form-register p-5 auth shadow-lg rounded">
+  <main class="form">
+    <div class="form__div">
+      <h2 class="form__h2">Страница авторизации</h2>
+    <form method="post" class="">
       {% csrf_token %}
       {{ form.as_p }}
-      <button class="btn btn-primary btn-lg btn-block shadow-lg rounded my-3" type="submit">Войти</button>
+      <button class="form__button" type="submit">Войти</button>
     </form>
-    <hr class="mt-5">
-    <a href="{% url 'home' %}"><button class="btn btn-warning btn-lg btn-block shadow-lg rounded my-3" type="submit">Уже зарегистрированы?</button></a>
+    <hr class="">
+    <a href="{% url 'home' %}"><button class="form__button" type="submit">Уже зарегистрированы?</button></a>
     </div>
   </main>
 {% endblock %}
