@@ -1,19 +1,19 @@
 {% extends 'link/base.html' %}
 
 {% block title %}
-  Удаление статьи
+  Удаление ссылки
 {% endblock %}
 
 {% block main %}
   <main class="form">
     <div class="form__div">
-      <h2 class="form__h2">Вы точно хотите удалить статью {{ object.title }}</h2>
+      <h2 class="form__h2">Вы точно хотите удалить ссылку {{ object.title }}</h2>
       <form method="post" class="">
         {% csrf_token %}
+        <hr class="ащкь__рк">
         <button class="form__button" type="submit">Да, удалить</button>
         <a href="{% url 'link-detail' object.slug %}" class="form__button">Нет, отмена</a>
       </form>
-    <hr class="">
     </div>
   </main>
 {% endblock %}

@@ -12,15 +12,15 @@
       {% if post.autor == user %}
         <h3 class="form__h3">{{ post.title }}</h3>
         <hr>
-        <p>{{ post.slug }}</p>
+        <a href="{{ post.long_link }}" target="blank"><p>link/{{ post.slug }}</p></a>
         <div class="">
             <p>Автор: <b>{{ post.autor }}</b></p>
         </div>
-        <hr class="">
+        <hr class="form__hr">
         <a href="{% url 'link-detail' post.slug %}" class="form__button">Читать далее</a>
       {% endif %}
       {% endfor %}
+      <a href="{% url 'link-add' %}" class="form__button">Добавить ссылку</a>
     </div>
-    <a href="{% url 'link-add' %}" class="form__button">Добавить ссылку</a>
   </form>
 {% endblock %}

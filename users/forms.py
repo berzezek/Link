@@ -5,7 +5,9 @@ from .models import Profile
 
 
 class UserOurregistration(UserCreationForm):
-    email = forms.EmailField(required=True)
+    email = forms.EmailField(required=False)
+    username = forms.CharField(required=False)
+    password1 = forms.CharField(required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -19,9 +21,8 @@ class UserOurregistration(UserCreationForm):
 class UserUpdateForm(forms.ModelForm):
     username = forms.CharField(required=False)
     password1 = forms.CharField(required=False)
-    slug = forms.CharField(required=False)
-    long_links = forms.CharField(required=False)
+
 
     class Meta:
         model = Profile
-        fields = ['username', 'password1', 'slug', 'long_links']
+        fields = ['username', 'password1']

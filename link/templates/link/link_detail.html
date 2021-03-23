@@ -7,19 +7,19 @@
 {% block main %}
   <form class="form">
     <div class="form__div">
-      <h2 class="form__h2">Новости</h2>
+      <h2 class="form__h2">Ссылки</h2>
       <h3 class="">{{ object.title }}</h3>
       <hr>
-      <p>{{ object.slug }}</p>
+      <a href="{{ post.long_link }}" target="blank"><p>link/{{ post.slug }}</p></a>
       <div class="">
         <div class="">
-          <p>Автор: <b>{{ object.autor }}</b></p>
+          <p>Владелец: <b>{{ object.autor }}</b></p>
         </div>
       </div>
-      <hr class="mb-3">
+      <hr class="form__hr">
       {% if object.autor == user %}
-      <a href="{% url 'link-update' object.slug %}" class="form__button">Редактировать статью</a>
-      <a href="{% url 'link-delete' object.slug %}" class="form__button">Удалить статью</a>
+      <a href="{% url 'link-update' object.slug %}" class="form__button">Редактировать ссылку</a>
+      <a href="{% url 'link-delete' object.slug %}" class="form__button">Удалить ссылку</a>
       {% endif %}
     </div>
   </form>

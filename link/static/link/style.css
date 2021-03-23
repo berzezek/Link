@@ -69,3 +69,7 @@ label {
   border: 2px solid black;
   border-radius: 5px;
 }
+
+.form__hr {
+    margin-bottom: 30px;
+}
