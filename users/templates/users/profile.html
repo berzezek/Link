@@ -7,16 +7,15 @@
 {% block main %}
   <form method="post" enctype="multipart/form-data" class="form">
     <div class="form__div">
-      <h2 class="form__h2">Кабинет пользователя</h2>
-          @{{ user.username }}
+      <h2 class="form__h2">Кабинет пользователя @{{ user.username }}</h2>
+
           <br><br>
           {% if user.email %}
           <b>E-mail: </b>{{ user.email }}
           {% endif %}
       {% csrf_token %}
-      {{ updateUserForm.as_p }}
-      {{ profileForm.as_p }}
-      <button class="form__button" type="submit">Обновить данные</button>
+      {{ update_user.as_p }}
+      <button class="form__button" type="submit">Обновить логин</button>
     </div>
   </form>
 {% endblock %}

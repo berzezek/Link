@@ -1,9 +1,17 @@
 {% load static %}
+@font-face {
+    font-family: 'MyWebFont';
+
+    src: url('19797.ttf');
+}
+
+
 body {
     padding: 0;
     margin: 0;
     background: url(back.jpg) no-repeat;
     background-size: cover;
+    font-family: MyWebFont, sans-serif;
 }
 
 a {
@@ -12,6 +20,7 @@ a {
 }
 
 header {
+    margin-top: 1%;
     display: flex;
     align-items:center;
     justify-content: space-between;
@@ -20,12 +29,18 @@ header {
     margin-left: 2%;
     background-color: #ab3333;
     opacity:0.8;
+    border-radius: 10px;
 }
 
 .header__h2 {
-    margin-left: 20px;
+    margin-left: 30px;
     color: white;
-    font-size: 30px;
+    font-size: 50px;
+}
+
+h2 {
+    color: white;
+    font-size: 25px;
 }
 
 .header__nav {
@@ -41,24 +56,19 @@ header {
     border-radius: 10px;
     background-color: #ab3333;
     opacity: 0.8;
+    text-align: center;
 }
 
-.form__div {
-margin-top: 0;
+.form__p {
+margin-bottom: 30px;
 }
 
 input {
   display: block;
   width: 90%;
-  margin-top: 5%;
   border-radius: 5px;
   padding: 2%;
   border: 2px solid black;
-}
-
-label {
-  margin-top: 20px;
-  margin-bottom: 10px;
 }
 
 
@@ -68,8 +78,27 @@ label {
   padding: 10px;
   border: 2px solid black;
   border-radius: 5px;
+  font-size: 15px;
+  font-family: MyWebFont, sans-serif;
+  box-sizing: border-box;
+  transition: all 500ms ease;
 }
 
 .form__hr {
     margin-bottom: 30px;
+}
+
+.helptext {
+    color: #474a5f;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.form__button:hover {
+	animation: bounce 1s;
+}
+
+
+label {
+    font-size: 20px;
 }

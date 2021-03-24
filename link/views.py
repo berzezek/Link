@@ -13,13 +13,13 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'link/index.html')
 
+
 def uslugi(request):
     return render(request, 'link/uslugi.html')
 
+
 def about(request):
     return render(request, 'link/about.html')
-
-
 
 
 class ShowLinkView(ListView):
@@ -28,12 +28,12 @@ class ShowLinkView(ListView):
     context_object_name = 'link'
     ordering = ['-date']
 
-
     def get_context_data(self, **kwards):
         ctx = super(ShowLinkView, self).get_context_data(**kwards)
 
         ctx['title'] = 'Ссылки'
         return ctx
+
 
 class LinkDetailView(DetailView):
     model = Link
@@ -44,6 +44,7 @@ class LinkDetailView(DetailView):
 
         ctx['title'] = Link.objects.get(slug=self.kwargs['slug'])
         return ctx
+
 
 class CreateLinkView(LoginRequiredMixin, CreateView):
     model = Link
@@ -61,12 +62,12 @@ class CreateLinkView(LoginRequiredMixin, CreateView):
         ctx['btn_text'] = 'Добавить ссылку'
         return ctx
 
+
 class UpdateLinkView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Link
     template_name = 'link/link_form.html'
 
     fields = ['title', 'long_link', 'slug']
-
 
     def get_context_data(self, **kwards):
         ctx = super(UpdateLinkView, self).get_context_data(**kwards)
@@ -75,7 +76,6 @@ class UpdateLinkView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         ctx['btn_text'] = 'Обновить ссылку'
         return ctx
 
-
     def test_func(self):
         news = self.get_object()
         if self.request.user == news.autor:
@@ -83,10 +83,10 @@ class UpdateLinkView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
         return False
 
-
     def form_valid(self, form):
         form.instance.autor = self.request.user
         return super().form_valid(form)
+
 
 class DeleteLinkView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Link

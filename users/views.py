@@ -25,7 +25,7 @@ def profile(request):
         if update_user.is_valid():
             update_user.save()
             messages.success(request, f'Ваш аккаунт был успешно обновлен')
-            return redirect('link')
+            return redirect('user')
     else:
         update_user = UserUpdateForm(instance=request.user)
 

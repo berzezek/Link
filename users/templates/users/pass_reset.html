@@ -1,0 +1,15 @@
+{% extends 'link/base.html' %}
+
+{% block main %}
+<div class="form">
+  <div class="form__div">
+    <h2>Восстановление пароля</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="form__button">Запросить новый пароль</button>
+    </form>
+  </div>
+</div>
+{% endblock main %}
+

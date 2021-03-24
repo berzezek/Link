@@ -13,6 +13,20 @@ urlpatterns = [
     path('user/', authViews.LoginView.as_view(template_name='users/user.html'), name='user'),
     path('exit/', authViews.LogoutView.as_view(template_name='users/exit.html'), name='exit'),
     path('', include('link.urls')),
+    # path('password-change/', authViews.PasswordChangeView.as_view(), name='password_change'),
+    # path('password-change/done/', authViews.PasswordChangeDoneView.as_view(), name='password_change_done'),
+    path('pass-reset/',
+         authViews.PasswordResetView.as_view(template_name='users/pass_reset.html'),
+         name='pass-reset'),
+    path('password_reset_confirm/<uidb64>/<token>/',
+         authViews.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'),
+         name='password_reset_confirm'),
+    path('password_reset_complete/',
+         authViews.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
+         name='password_reset_complete'),
+    path('password-reset/done/',
+         authViews.PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'),
+         name='password_reset_done')
 ]
 
 if settings.DEBUG:
